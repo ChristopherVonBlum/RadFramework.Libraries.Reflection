@@ -1,10 +1,10 @@
 ﻿
+using System;
+
 #pragma warning disable 67
 
-namespace CVB.NET.ReflectionCaching.Tests
+namespace RadFramework.Libraries.Reflection.Tests
 {
-    using System;
-
     public static class TestReflectionCacheTypes
     {
         public static readonly Type TestType = typeof (ReflectionCacheTestType<string>);

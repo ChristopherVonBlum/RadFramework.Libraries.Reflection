@@ -1,14 +1,13 @@
-﻿namespace CVB.NET.Reflection.Caching.Lookup
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.Immutable;
-    using System.Linq;
-    using System.Reflection;
-    using System.Runtime.CompilerServices;
-    using Cached;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
-    public static class CachedTypeLookups
+namespace RadFramework.Libraries.Reflection.Caching.Queries
+{
+    public static class ClassQueries
     {
         public static Func<Type, IEnumerable<ConstructorInfo>> GetPublicConstructors => type =>
             type
@@ -25,7 +24,7 @@
         public static Func<Type, IEnumerable<CachedFieldInfo>> GetPublicFields => type =>
             Enumerable.Where(type
                 .GetFields(BindingFlags.Instance | BindingFlags.Public)
-                .Select(ReflectionCache.Get<CachedFieldInfo>), field => !field.Attributes.OfType<CompilerGeneratedAttribute>().Any());
+                .Select(ReflectionCache.CurrentCache.GetCachedMetaData), field => !field.Query(AttributeLocationQueries.GetAttributes).OfType<CompilerGeneratedAttribute>().Any());
 
         public static Func<Type, IEnumerable<EventInfo>> GetPublicImplementedEvents => type =>
             type
@@ -44,9 +43,10 @@
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 
         public static Func<Type, IEnumerable<CachedMethodInfo>> GetPublicStaticMethods => type =>
-            Enumerable.Where(type
+            type
                 .GetMethods(BindingFlags.Static | BindingFlags.Public)
-                .Select(ReflectionCache.Get<CachedMethodInfo>), method => !method.Attributes.OfType<CompilerGeneratedAttribute>().Any())
+                .Select(info => ReflectionCache.CurrentCache.GetCachedMetaData(info))
+                .Where(method => !method.Query(AttributeLocationQueries.GetAttributes).OfType<CompilerGeneratedAttribute>().Any())
                 .ToImmutableList();
 
         public static Func<Type, IEnumerable<Type>> GetTypeArguments => type =>
@@ -81,5 +81,10 @@
                                                                                    CallingConventions.Standard,
                                                                                    new Type[0],
                                                                                    null);
+
+        public static Type[] GetGenericArguments(Type type)
+        {
+            return type.GetGenericArguments();
+        }
     }
 }

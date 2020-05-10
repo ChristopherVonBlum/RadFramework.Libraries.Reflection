@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadFramework.Libraries.Reflection", "RadFramework.Libraries.Reflection\RadFramework.Libraries.Reflection.csproj", "{73B248B8-2DB5-470B-998E-112CFDE01AFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadFramework.Libraries.Reflection.Tests", "RadFramework.Libraries.Reflection.Tests\RadFramework.Libraries.Reflection.Tests.csproj", "{7C389F1A-189D-425A-8ACE-284D7E92E11F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73B248B8-2DB5-470B-998E-112CFDE01AFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B248B8-2DB5-470B-998E-112CFDE01AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B248B8-2DB5-470B-998E-112CFDE01AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B248B8-2DB5-470B-998E-112CFDE01AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C389F1A-189D-425A-8ACE-284D7E92E11F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C389F1A-189D-425A-8ACE-284D7E92E11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C389F1A-189D-425A-8ACE-284D7E92E11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C389F1A-189D-425A-8ACE-284D7E92E11F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,15 +1,10 @@
-﻿namespace CVB.NET.ReflectionCaching.Tests
-{
-    using System;
-    using System.Linq;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using Reflection.Caching;
-    using Reflection.Caching.Aspect;
-    using Reflection.Caching.Cached;
-    using Reflection.Caching.Lookup;
-    using Reflection.Caching.Wrapper;
+﻿using System.Linq;
+using NUnit.Framework;
+using RadFramework.Libraries.Reflection.Caching;
+using RadFramework.Libraries.Reflection.Caching.Queries;
 
-    [TestClass]
+namespace RadFramework.Libraries.Reflection.Tests
+{
     public class ReflectionCacheTest
     {
         public enum TestEnumType
@@ -19,70 +14,24 @@
             C3
         }
 
-        [TestMethod]
+        [Test]
         public void GetCachedType_MatchesTestType()
         {
-            CachedType cachedType = ReflectionCache.Get<CachedType>(TestReflectionCacheTypes.TestType);
+            CachedType cachedType = ReflectionCache.CurrentCache.GetCachedMetaData(TestReflectionCacheTypes.TestType);
 
-            Assert.IsTrue(cachedType.Attributes.Length == 1);
+            Assert.IsTrue(cachedType.Query(AttributeLocationQueries.GetAttributes).Length == 1);
 
-            Assert.IsTrue(cachedType.Fields.Length == 2);
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetPublicFields).Count() == 2);
 
-            Assert.IsTrue(cachedType.Properties.Length == 2);
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetPublicImplementedProperties).Count() == 2);
 
-            Assert.IsTrue(cachedType.Constructors.Length == 2);
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetPublicImplementedMethods).Count() == 2);
 
-            Assert.IsTrue(cachedType.Events.Length == 2);
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetPublicImplementedEvents).Count() == 2);
 
-            Assert.IsTrue(cachedType.Methods.Length == 2);
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetPublicImplementedMethods).Count() == 2);
 
-            Assert.IsTrue(cachedType.GenericTypeArguments.Length == 1);
-
-            Assert.IsTrue(cachedType.DefaultConstructor != null);
-
-            Assert.IsTrue(cachedType.GenericTypeDefinition.GenericTypeArguments.Length == 1);
-
-            Assert.IsTrue(cachedType.Interfaces.Length == 1);
-        }
-
-        [TestMethod]
-        public void GetCachedTypeView_MatchesTestType()
-        {
-            MetaDataTestInfoView cachedType = ReflectionCache.Get<MetaDataTestInfoView>(TestReflectionCacheTypes.TestType);
-
-            Assert.IsTrue(cachedType.Properties.Length == 2);
-        }
-
-        [TestMethod]
-        public void GetCachedInterface_MatchesTestType()
-        {
-            CachedInterfaceType cachedType = (CachedInterfaceType) ReflectionCache.Get(TestReflectionCacheTypes.TestInterfaceType);
-
-            Assert.IsTrue(cachedType.Properties.Length == 2);
-
-            Assert.IsTrue(cachedType.Events.Length == 2);
-
-            Assert.IsTrue(cachedType.Methods.Length == 2);
-        }
-
-        [TestMethod]
-        public void CachedEnum_MatchesTestType()
-        {
-            CachedEnum enm = (CachedEnum) ReflectionCache.Get(typeof (TestEnumType));
-
-            string[] values = typeof (TestEnumType).GetEnumNames();
-
-            CollectionAssert.AreEqual(enm.StringValues, values);
-        }
-
-        public class MetaDataTestInfoView : ReflectionInfoViewWrapperBase<Type>
-        {
-            [UseLookup(typeof (CachedTypeLookups), nameof(CachedTypeLookups.GetPublicImplementedProperties))]
-            public CachedPropertyInfo[] Properties { get; }
-
-            public MetaDataTestInfoView(Type reflectedType) : base(reflectedType)
-            {
-            }
+            Assert.IsTrue(cachedType.Query(ClassQueries.GetGenericArguments).Length == 1);
         }
     }
 }
