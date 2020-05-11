@@ -3,4 +3,9 @@
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v2.2::RadFramework.Libraries.Reflection.Tests.Tests.Assumption_Method&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa87b12f_002Df971_002D4191_002D9e8e_002Da44c88707ae0/@EntryIndexedValue">&lt;SessionState ContinuousTestingIsOn="False" ContinuousTestingMode="0" FrameworkVersion="{x:Null}" IsLocked="False" Name="GetCachedType_MatchesTestType" PlatformMonoPreference="{x:Null}" PlatformType="{x:Null}" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v2.2::RadFramework.Libraries.Reflection.Tests.ReflectionCacheTest.GetCachedType_MatchesTestType&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
