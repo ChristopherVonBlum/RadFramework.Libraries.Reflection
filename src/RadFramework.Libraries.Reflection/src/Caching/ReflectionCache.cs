@@ -58,7 +58,7 @@ namespace RadFramework.Libraries.Reflection.Caching
         {
             return keyCache.GetOrAdd(t, o =>
             {
-                string key = t.MetadataToken.ToString() + t.AssemblyQualifiedName;
+                string key = t.Assembly.FullName + t.MetadataToken.ToString();
 
                 if (!t.IsConstructedGenericType)
                 {
@@ -82,7 +82,7 @@ namespace RadFramework.Libraries.Reflection.Caching
             {
                 string key = BuildTypeKey(method.DeclaringType);
 
-                key += method.MetadataToken.ToString() + method.Name;
+                key += method.MetadataToken.ToString();
                 
                 if(method is MethodInfo m && m.ReturnType.IsGenericParameter)
                     key += m.ReturnType.MetadataToken.ToString();

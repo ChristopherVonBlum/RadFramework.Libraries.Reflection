@@ -27,6 +27,18 @@ namespace RadFramework.Libraries.Reflection.Tests
                 ((CachedAssembly) Assembly.GetExecutingAssembly()).Query(AssemblyQueries.GetTypes);
             ;
         }
+
+        [Test]
+        public void Assumption_Method()
+        {
+            var x = typeof(TestType<,>);
+
+            var xConstructed = typeof(TestType<string, string>);
+
+            CachedMethodInfo testMethod2 = x.GetMethod("TestMethod2");
+
+            var parameters = testMethod2.Query(MethodBaseQueries.GetParameters);
+        }
         
         [Test]
         public void Assumption_MethodOfGenericTypeHasDifferentToken()
