@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace RadFramework.Libraries.Reflection.Caching.Queries
 {
-    public class AttributeLocationQueries
+    public static class AttributeLocationQueries
     {
         public static Attribute[] GetInheritedAttributes(ICustomAttributeProvider location)
         {

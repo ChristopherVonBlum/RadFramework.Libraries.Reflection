@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace RadFramework.Libraries.Reflection.Caching.Queries
 {
-    public class AssemblyQueries
+    public static class AssemblyQueries
     {
         public static Type[] GetTypes(Assembly assembly)
         {

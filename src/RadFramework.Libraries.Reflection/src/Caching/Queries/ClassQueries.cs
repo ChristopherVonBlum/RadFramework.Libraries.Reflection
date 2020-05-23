@@ -9,11 +9,11 @@ namespace RadFramework.Libraries.Reflection.Caching.Queries
 {
     public static class ClassQueries
     {
-        public static Func<Type, IEnumerable<ConstructorInfo>> GetPublicConstructors => type =>
+        public static IEnumerable<ConstructorInfo> GetPublicConstructors(Type type) =>
             type
                 .GetConstructors(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
-        public static Func<Type, ConstructorInfo> GetPublicEmptyConstructor => type =>
+        public static ConstructorInfo GetPublicEmptyConstructor(Type type) =>
             type.GetConstructor(
                 BindingFlags.Instance | BindingFlags.Public,
                 null,
@@ -21,66 +21,64 @@ namespace RadFramework.Libraries.Reflection.Caching.Queries
                 new Type[0],
                 null);
 
-        public static Func<Type, IEnumerable<CachedFieldInfo>> GetPublicFields => type =>
-            Enumerable.Where(type
-                .GetFields(BindingFlags.Instance | BindingFlags.Public)
-                .Select(ReflectionCache.CurrentCache.GetCachedMetaData), field => !field.Query(AttributeLocationQueries.GetAttributes).OfType<CompilerGeneratedAttribute>().Any());
+        public static IEnumerable<FieldInfo> GetPublicFields(Type type) =>
+            type
+                .GetFields(BindingFlags.Instance | BindingFlags.Public);
 
-        public static Func<Type, IEnumerable<EventInfo>> GetPublicImplementedEvents => type =>
+        public static IEnumerable<EventInfo> GetPublicImplementedEvents(Type type) =>
             type
                 .GetEvents(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly);
 
-        public static Func<Type, IEnumerable<Type>> GetPublicImplementedInterfaces => type =>
+        public static IEnumerable<Type> GetPublicImplementedInterfaces(Type type) =>
             type.GetInterfaces();
 
-        public static Func<Type, IEnumerable<MethodInfo>> GetPublicImplementedMethods => type =>
+        public static IEnumerable<MethodInfo> GetPublicImplementedMethods(Type type) =>
             type
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly)
                 .Where(method => !method.IsSpecialName);
 
-        public static Func<Type, IEnumerable<PropertyInfo>> GetPublicImplementedProperties => type =>
+        public static IEnumerable<PropertyInfo> GetPublicImplementedProperties(Type type) =>
             type
                 .GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 
-        public static Func<Type, IEnumerable<CachedMethodInfo>> GetPublicStaticMethods => type =>
+        public static IEnumerable<MethodInfo> GetPublicStaticMethods(Type type) =>
             type
                 .GetMethods(BindingFlags.Static | BindingFlags.Public)
-                .Select(info => ReflectionCache.CurrentCache.GetCachedMetaData(info))
-                .Where(method => !method.Query(AttributeLocationQueries.GetAttributes).OfType<CompilerGeneratedAttribute>().Any())
+                .Where(method => !method.IsSpecialName)
                 .ToImmutableList();
 
-        public static Func<Type, IEnumerable<Type>> GetTypeArguments => type =>
-                                                                        {
-                                                                            if (type.IsGenericType || type.IsGenericTypeDefinition)
-                                                                            {
-                                                                                return type.GetGenericArguments();
-                                                                            }
+        public static IEnumerable<Type> GetTypeArguments(Type type)
+        {
+            if (type.IsConstructedGenericType || type.IsGenericTypeDefinition)
+            {
+                return type.GetGenericArguments();
+            }
 
-                                                                            return new Type[0];
-                                                                        };
+            return new Type[0];
+        }
 
-        public static Func<Type, Type> GetGenericTypeDefinition => type =>
-                                                                   {
-                                                                       if (type.IsGenericTypeDefinition)
-                                                                       {
-                                                                           return type;
-                                                                       }
+        public static Type GetGenericTypeDefinition(Type type)
+        {
+           if (type.IsGenericTypeDefinition)
+           {
+               return type;
+           }
 
-                                                                       if (type.IsGenericType)
-                                                                       {
-                                                                           return type.GetGenericTypeDefinition();
-                                                                       }
+           if (type.IsGenericType)
+           {
+               return type.GetGenericTypeDefinition();
+           }
 
-                                                                       return null;
-                                                                   };
+           return null;
+        }
 
-        public static Func<Type, ConstructorInfo> GetDefaultConstructor => type =>
-                                                                               type.GetConstructor(
-                                                                                   BindingFlags.Instance | BindingFlags.Public,
-                                                                                   null,
-                                                                                   CallingConventions.Standard,
-                                                                                   new Type[0],
-                                                                                   null);
+        public static ConstructorInfo GetDefaultConstructor(Type type) =>
+            type.GetConstructor(
+               BindingFlags.Instance | BindingFlags.Public,
+               null,
+               CallingConventions.Standard,
+               new Type[0],
+               null);
 
         public static Type[] GetGenericArguments(Type type)
         {

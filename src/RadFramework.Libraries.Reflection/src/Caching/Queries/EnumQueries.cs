@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace RadFramework.Libraries.Reflection.Caching.Queries
 {
-    public class EnumQueries
+    public static class EnumQueries
     {
-        public string[] GetEnumValues(Type @enum)
+        public static string[] GetEnumValues(Type @enum)
         {
             List<string> stringVals = new List<string>();
 
