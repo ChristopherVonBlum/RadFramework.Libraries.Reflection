@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace RadFramework.Libraries.Reflection.DynamicProxy
+namespace RadFramework.Libraries.Reflection.DispatchProxy
 {
     public static class DispatchProxy
     {
