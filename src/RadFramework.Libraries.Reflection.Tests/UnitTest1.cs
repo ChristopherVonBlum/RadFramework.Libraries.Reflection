@@ -19,6 +19,13 @@ namespace RadFramework.Libraries.Reflection.Tests
                 ((CachedType) typeof(TestType<,>)).Query(ClassQueries.GetPublicImplementedProperties);
             ;
         }
+
+        [Test]
+        public void QueryInterface()
+        {
+            var publicProperties=
+                ((CachedType) typeof(TestInterface)).Query(InterfaceQueries.GetProperties);
+        }
         
         [Test]
         public void QueryAssembly()
@@ -57,6 +64,15 @@ namespace RadFramework.Libraries.Reflection.Tests
         }
     }
 
+    public interface BaseInterface
+    {
+        string Prop1 { get; set; }
+    }
+    public interface TestInterface : BaseInterface
+    {
+        string Prop2 { get; set; }
+    }
+    
     public class TestType<T, T2>
     {
         public T Prop { get; set; }
