@@ -19,6 +19,14 @@ namespace RadFramework.Libraries.Reflection.Tests
                 ((CachedType) typeof(TestType<,>)).Query(ClassQueries.GetPublicImplementedProperties);
             ;
         }
+        
+        [Test]
+        public void QueryType_Constructors()
+        {
+            var publicProperties =
+                ((CachedType) typeof(TestType<,>)).Query(ClassQueries.GetPublicConstructors);
+            ;
+        }
 
         [Test]
         public void QueryInterface()

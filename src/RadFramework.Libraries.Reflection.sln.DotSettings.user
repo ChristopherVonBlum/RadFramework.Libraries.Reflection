@@ -1,27 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5f1ce664_002D60e2_002D4d77_002D8855_002D9daa2f44b250/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="QueryInterface #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=63e28b21_002D46f8_002D4ff3_002Db7fa_002D79e45937e6ba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="QueryType_Constructors" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.Tests.QueryInterface&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=6f00a060_002D334a_002D49dd_002D8cf2_002Dba598b2a9c5d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Assumption_Method" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v2.2::RadFramework.Libraries.Reflection.Tests.Tests.Assumption_Method&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=91abf6d1_002Db650_002D415f_002D9373_002Dc6dd125b89ca/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="QueryInterface #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.Tests.QueryInterface&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=aa87b12f_002Df971_002D4191_002D9e8e_002Da44c88707ae0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetCachedType_MatchesTestType" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.DispatchProxy.InterfaceProxyTests.TestInterfaceProxy&lt;/TestId&gt;
-  &lt;/TestAncestor&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b701acab_002D694b_002D4500_002D9920_002Dc36a03ee7914/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="QueryInterface" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;TestAncestor&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.Tests.QueryInterface&lt;/TestId&gt;
-    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.DispatchProxy.InterfaceProxy.TestInterfaceProxy&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::7C389F1A-189D-425A-8ACE-284D7E92E11F::.NETCoreApp,Version=v3.1::RadFramework.Libraries.Reflection.Tests.Tests.QueryType_Constructors&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
